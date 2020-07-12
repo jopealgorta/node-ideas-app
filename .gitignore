@@ -1,0 +1,18 @@
+api/node_modules/
+web/node_modules/
+docs/
+.env/
+api/.env
+.DS_Store
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# For Production
+web/
