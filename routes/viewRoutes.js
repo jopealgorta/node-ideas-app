@@ -12,33 +12,31 @@ router.get('/signup', (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-router.use(authController.protect);
-
-router.get('/idea', (req, res, next) => {
+router.get('/idea', authController.protect, (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-router.get('/chat', (req, res, next) => {
+router.get('/chat', authController.protect, (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-router.get('/chats', (req, res, next) => {
+router.get('/chats', authController.protect, (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-router.get('/create-idea', (req, res, next) => {
+router.get('/create-idea', authController.protect, (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-router.get('/my-ideas', (req, res, next) => {
+router.get('/my-ideas', authController.protect, (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-router.get('/liked-ideas', (req, res, next) => {
+router.get('/liked-ideas', authController.protect, (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-router.get('/me', (req, res, next) => {
+router.get('/me', authController.protect, (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 module.exports = router;
