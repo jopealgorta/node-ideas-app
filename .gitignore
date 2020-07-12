@@ -1,8 +1,5 @@
-api/node_modules/
-web/node_modules/
-docs/
-.env/
-api/.env
+node_modules/
+.env
 .DS_Store
 
 # Editor directories and files
@@ -13,6 +10,3 @@ api/.env
 *.njsproj
 *.sln
 *.sw?
-
-# For Production
-web/
