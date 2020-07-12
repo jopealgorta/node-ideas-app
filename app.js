@@ -11,8 +11,7 @@ const compression = require('compression');
 const ideaRouter = require('./routes/ideaRoutes');
 const userRouter = require('./routes/userRoutes');
 const messageRouter = require('./routes/messageRoutes');
-
-const authController = require('./controllers/authController');
+const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -52,13 +51,10 @@ app.use(compression());
 
 // 2) ROUTES
 
+app.use('/', viewRouter);
 app.use('/api/users', userRouter);
 app.use('/api/ideas', ideaRouter);
 app.use('/api/messages', messageRouter);
-
-app.get(/.*/, authController.protect, (req, res, next) => {
-    res.sendFile(`${__dirname}/public/index.html`);
-});
 
 app.all('*', (req, res, next) => {
     res.status(404).json({
