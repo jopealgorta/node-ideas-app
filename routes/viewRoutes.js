@@ -4,6 +4,10 @@ const authController = require('../controllers/authController');
 
 const router = express.Router();
 
+router.get('/', authController.protect, (req, res, next) => {
+    res.sendFile(path.resolve(__dirname, '../public/index.html'));
+});
+
 router.get('/login', (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
