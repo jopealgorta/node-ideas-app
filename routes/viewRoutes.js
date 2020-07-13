@@ -16,6 +16,10 @@ router.get('/signup', (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
+router.get('/error', (req, res, next) => {
+    res.sendFile(path.resolve(__dirname, '../public/index.html'));
+});
+
 router.get('/idea', authController.protect, (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
