@@ -103,17 +103,20 @@ exports.protect = async (req, res, next) => {
         //     status: 'fail',
         //     message: 'You are not logged in! Please login to get access.'
         // });
+        console.log('Entreee');
         return res.redirect('/error');
     }
 
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
     const currentUser = await User.findById(decoded.id);
-    if (!currentUser)
-        // return res.status(401).json({
-        //     status: 'fail',
-        //     message: 'The user no longer exists.'
-        // });
+    if (!currentUser) {
+        console.log('Entreee');
         return res.redirect('/error');
+    }
+    // return res.status(401).json({
+    //     status: 'fail',
+    //     message: 'The user no longer exists.'
+    // });
 
     if (currentUser.changedPasswordAfter(decoded.iat))
         // return res.status(401).json({
